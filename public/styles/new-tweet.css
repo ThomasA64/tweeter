@@ -1,0 +1,25 @@
+.new-tweet {
+  border-bottom: solid black;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 100vw;
+  font-family: 'Source Sans Pro', sans-serif;
+  font: bold;
+}
+
+button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-color: blue;
+  font-family: 'Bungee', cursive;
+  color: white;
+}
+
+output {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
