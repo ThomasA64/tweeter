@@ -9,17 +9,22 @@
 }
 
 button {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
   background-color: blue;
   font-family: 'Bungee', cursive;
   color: white;
 }
 
-output {
+.bottomcontainer {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
+.new-tweet form {
+  width: 100%;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  border: none;
+  margin-bottom: 20px;
+}
