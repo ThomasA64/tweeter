@@ -1,9 +1,18 @@
-header {
+.mainHeader {
   height: 400px;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #00700d;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   color: white;
+  margin-top: 120px;
 }
+
+.artTweets {
+  display: flex;
+  justify-content: space-between;
+}
+
+

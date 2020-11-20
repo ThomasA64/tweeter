@@ -25,12 +25,18 @@ main {
   width: 90%;
   margin: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   justify-content: space-between;
   background-color: #f4f1ec;
   color: black;
   padding: 20px
 };
+
+.tweetContainer {
+  border: black;
+  background-color: white;
+}
 
 
 /*
