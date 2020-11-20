@@ -1,11 +1,14 @@
 .new-tweet {
   border-bottom: solid black;
-  display: flex;
+  display: none;
   justify-content: center;
   padding: 20px;
   width: 100%;
   font-family: 'Source Sans Pro', sans-serif;
   font: bold;
+}
+.new-tweet.visible {
+  display: flex;
 }
 
 button {

@@ -1,34 +1,10 @@
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
 
 const renderTweets = function(tweets) {
   console.log(tweets)
@@ -44,19 +20,23 @@ const renderTweets = function(tweets) {
 };
 
 const createTweetElement = function(data) {
-let $tweet = 
-  `<article class="tweet"> <header class="artTweets"> 
-  <h3> ${data.user.name} </h3>
-</div>
-<div>
-  <h4>${data.user.handle}</h4>
-</div>
- </header>
- <section>
- ${data.content.text}
-</section>
-<footer>${data.user.created_at}</footer>
-</article>`
+  let created_at = new Date(data.created_at);
+  let $tweet = 
+    `<article class="tweet">
+      <header class="artTweets"> 
+        <figure>
+          <img src="${data.user.avatars}" alt="${data.user.name}'s Avatar" />
+        </figure>
+        <h3> ${data.user.name} </h3>
+        <div>
+          <h4>${data.user.handle}</h4>
+        </div>
+      </header>
+      <section>
+      ${data.content.text}
+      </section>
+      <footer>${created_at.toLocaleDateString()} at ${created_at.toLocaleTimeString()}</footer>
+  </article>`
 return $tweet;
 };
 
@@ -68,20 +48,43 @@ const loadTweets =  function () {
   });
 }
 
-// If statement to make sure it doesn't submit if over 140 characters or under 1 (empty).
-// Also a function to convert the series of numbers to an actual date. 
+const showError = (msg) => {
+  let $error = `
+    <div class="Error">
+      <p>${msg}
+    </div>
+  `;
+  // I still need to take $error and I need to insert it around form
+}
+
+
+$('#showForm').click(() => {
+  $('.new-tweet').toggleClass('visible');
+})
+// this is to toggle the new-tweet form on the click on a button.  
+
 $(function () {
   const tForm = $('#tweetForm');
   tForm.submit(function (ev) {
+    const textArea = tForm.find('textarea');
+
     ev.preventDefault();
+    if( textArea.val().length <= 140 && textArea.val().length > 0){ // If statement to make sure it doesn't submit if over 140 characters or under 1 (empty).
       $.ajax({
           type: tForm.attr('method'),
           url: tForm.attr('action'),
           data: tForm.serialize(),
           success: function (data) {
-              loadTweets();
+              //loadTweets();
+              const newTweet = createTweetElement(data);
+              $(".tweetContainer").prepend(newTweet);
+              textArea.val('')      
           }
       });
+    } else {
+      showError();
+    }
+      
   });
 });
 
@@ -89,40 +92,3 @@ loadTweets();
 
 }); // document.ready ending curly brace here.
 
-// // Form submittion using JQuery:
-
-// const loadTweets =  function () {
-//   $.get("/tweets/").then (function (tweets) {
-//     renderTweets(tweets)
-//   });
-// }
-
-// $(function () {
-//   const tForm = $('#tweetForm');
-//   tForm.submit(function (ev) {
-//     ev.preventDefault();
-//       $.ajax({
-//           type: tForm.attr('method'),
-//           url: tForm.attr('action'),
-//           data: tForm.serialize(),
-//           success: function (data) {
-//               loadTweets();
-//           }
-//       });
-//   });
-// });
-
-
-
-
-// $(function() {
-//   const $button = $('#load-more-posts');
-//   $button.on('click', function () {
-//     console.log('Button clicked, performing ajax call...');
-//     $.ajax('more-posts.html', { method: 'GET' })
-//     .then(function (morePostsHtml) {
-//       console.log('Success: ', morePostsHtml);
-//       $button.replaceWith(morePostsHtml);
-//     });
-//   });
-// });

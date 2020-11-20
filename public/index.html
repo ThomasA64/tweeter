@@ -27,15 +27,17 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <button id="showForm">Write a New Tweet</button>
     </nav>
     <header class="mainHeader">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
+      <br />
       <div>
-          <h2>Your Name</h2>
+          <h2>Thomas Arthur</h2>
       </div>
+     
   </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
@@ -55,3 +57,5 @@
     </main>
   </body>
 </html>
+
+<!-- Commit: Added a toggle button in the nav bar to allow the tweet text-area to hide and show. Added conditional statement to before the Ajax reuqest to prevent a user from inputing a tweet if the tweet is an empty input or if the tweet is over 140 characters. Added a time function to tell the date and time the tweet was made as well. -->

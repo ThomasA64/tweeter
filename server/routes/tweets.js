@@ -23,6 +23,11 @@ module.exports = function(DataHelpers) {
       return;
     }
 
+    if (req.body.text.length > 140) {
+      res.status(400).json({ error: 'tweets must be under 140 characters'});
+      return;
+    }
+
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
@@ -36,7 +41,7 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        res.status(201).send(tweet);
       }
     });
   });
