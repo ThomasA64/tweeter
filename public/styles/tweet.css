@@ -8,4 +8,14 @@
   
 .tweet:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    
 }
+.tweet.showOnHover {
+  visibility: hidden;
+}
+
+.tweet:hover.showOnHover{
+  visibility: visible;
+  color: black;
+
+} 

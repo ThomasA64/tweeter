@@ -9,7 +9,6 @@ $(document).ready(function() {
 const renderTweets = function(tweets) {
   console.log(tweets)
   for (const tweet of tweets) {
-    console.log("insideforloop")
     const newTweet = createTweetElement(tweet)
     
     $(".tweetContainer").append(newTweet)
@@ -24,18 +23,29 @@ const createTweetElement = function(data) {
   let $tweet = 
     `<article class="tweet">
       <header class="artTweets"> 
-        <figure>
+      <div class="user">  
+      <figure>
           <img src="${data.user.avatars}" alt="${data.user.name}'s Avatar" />
         </figure>
-        <h3> ${data.user.name} </h3>
-        <div>
+        <h4> ${data.user.name} </h4>
+        </div>
+        <div class="showOnHover">
           <h4>${data.user.handle}</h4>
         </div>
       </header>
-      <section>
+      <section class="tweeterText">
       ${data.content.text}
       </section>
-      <footer>${created_at.toLocaleDateString()} at ${created_at.toLocaleTimeString()}</footer>
+      <footer class = "newTweetFooter">
+      <div>
+      ${created_at.toLocaleDateString()} at ${created_at.toLocaleTimeString()}
+      </div>
+      <div>
+      <i class="fas fa-flag"></i>
+      <i class="fas fa-retweet"></i>
+      <i class="fas fa-heart"></i>
+      </div>
+      </footer>
   </article>`
 return $tweet;
 };
@@ -51,11 +61,11 @@ const loadTweets =  function () {
 const showError = (msg) => {
   let $error = `
     <div class="Error">
-      <p>${msg}
+      <p>${msg}</p>
     </div>
   `;
-  // I still need to take $error and I need to insert it around form
-}
+  $('.error').append($error).slidedown()
+} 
 
 
 $('#showForm').click(() => {
@@ -66,23 +76,28 @@ $('#showForm').click(() => {
 $(function () {
   const tForm = $('#tweetForm');
   tForm.submit(function (ev) {
+    $('.error').empty()
     const textArea = tForm.find('textarea');
 
     ev.preventDefault();
-    if( textArea.val().length <= 140 && textArea.val().length > 0){ // If statement to make sure it doesn't submit if over 140 characters or under 1 (empty).
+     // If statement to make sure it doesn't submit if over 140 characters or under 1 (empty).
+    if( textArea.val().length > 140) {
+      showError('Your tweet has exceeded 140 characters!')
+    } else if (textArea.val().length === 0) {
+      showError('Your tweet is empty!')
+    }
+      else {
       $.ajax({
-          type: tForm.attr('method'),
-          url: tForm.attr('action'),
-          data: tForm.serialize(),
-          success: function (data) {
-              //loadTweets();
-              const newTweet = createTweetElement(data);
-              $(".tweetContainer").prepend(newTweet);
-              textArea.val('')      
-          }
-      });
-    } else {
-      showError();
+      type: tForm.attr('method'),
+      url: tForm.attr('action'),
+      data: tForm.serialize(),
+      success: function (data) {
+          //loadTweets();
+          const newTweet = createTweetElement(data);
+          $(".tweetContainer").prepend(newTweet);
+          textArea.val('')      
+      }
+  });
     }
       
   });

@@ -1,5 +1,5 @@
 .new-tweet {
-  border-bottom: solid black;
+  /* border-bottom: solid black; */
   display: none;
   justify-content: center;
   padding: 20px;
@@ -11,23 +11,55 @@
   display: flex;
 }
 
-button {
+.butNewTweet {
   background-color: blue;
   font-family: 'Bungee', cursive;
   color: white;
 }
 
+.user {
+  display: flex;
+  padding-right: 20px;
+}
+
 .bottomcontainer {
   display: flex;
   justify-content: space-between;
+  border-top: solid black 3px;
+  padding-top: 20px;
+  font-family: 'Bungee', cursive;
+  color: black;
 }
 
 .new-tweet form {
   width: 100%;
 }
 
-.new-tweet textarea {
+.tweeterText {
+  display: flex;
   width: 100%;
   border: none;
   margin-bottom: 20px;
+  padding-left: 40px;
+}
+
+.newTweetFooter {
+  padding-top: 10px;
+  border-top: solid black 2px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.tweet{
+  border: black solid 2.5px;
+  margin-bottom: 20px;
+}
+
+#tweetForm{
+  width: 100%;
+}
+
+#taTweet {
+  width: 100%;
 }

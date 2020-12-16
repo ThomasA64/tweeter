@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -42,20 +44,20 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <!-- Append error here -->
+        <div class="error"></div>
         <form id="tweetForm" action="http://localhost:8080/tweets/" method="POST">
           <label for="tweet-text"></label>
           <textarea id="taTweet" name="text" placeholder="What are you humming about?"></textarea>
           <div class ="bottomcontainer">
-            <button type="submit">Tweet</button>
+            <button class="butNewTweet"type="submit">Tweet</button>
             <output name="counter" id="counterChar" for="tweet-text">140</output>
           </div>
         </form>
       </section>
       <section class="tweetContainer">
-         <!-- where the jquery tweets get submitted. -->
+         <!-- where the jquery tweets get displayed. -->
         </section>
     </main>
   </body>
 </html>
-
-<!-- Commit: Added a toggle button in the nav bar to allow the tweet text-area to hide and show. Added conditional statement to before the Ajax reuqest to prevent a user from inputing a tweet if the tweet is an empty input or if the tweet is over 140 characters. Added a time function to tell the date and time the tweet was made as well. -->
