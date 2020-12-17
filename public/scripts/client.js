@@ -62,9 +62,9 @@ const loadTweets =  function () {
 
 const showError = (msg) => {
   let $error = `
-    <div class="Error">
-      <p>${msg}</p>
-    </div>
+   
+      ${msg}
+  
   `;
   $('.error').append($error).slidedown()
 } 
