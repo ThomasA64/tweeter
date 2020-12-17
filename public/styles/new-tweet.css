@@ -65,10 +65,10 @@
 }
 
 .icons {
-  visibility: hidden;
+ display: none;
 }
 
-.tweet:hover + .icons:hover {
+/* .tweet:hover + .icons:hover {
   color: blue;
   display: block;
-}
+} */
