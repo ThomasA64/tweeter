@@ -63,3 +63,12 @@
 #taTweet {
   width: 100%;
 }
+
+.icons {
+  visibility: hidden;
+}
+
+.tweet:hover + .icons:hover {
+  color: blue;
+  display: block;
+}

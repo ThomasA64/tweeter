@@ -18,6 +18,38 @@ const renderTweets = function(tweets) {
 // takes return value and appends it to the tweets container
 };
 
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
+var aDay = 24*60*60*1000;
+console.log(timeSince(new Date(Date.now()-aDay)));
+console.log(timeSince(new Date(Date.now()-aDay*2)));
+
+
 const createTweetElement = function(data) {
   let created_at = new Date(data.created_at);
   let $tweet = 
@@ -40,7 +72,7 @@ const createTweetElement = function(data) {
       <div>
       ${created_at.toLocaleDateString()} at ${created_at.toLocaleTimeString()}
       </div>
-      <div>
+      <div class ="icons">
       <i class="fas fa-flag"></i>
       <i class="fas fa-retweet"></i>
       <i class="fas fa-heart"></i>

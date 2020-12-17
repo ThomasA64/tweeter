@@ -3,7 +3,8 @@ nav {
   justify-content: space-between;
   height: 120px;
   width: 100vw;
-  background-color: #4056A1;
+  background-color: #00700d;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   color: #FFFF;
   font-family: 'Bungee', cursive;
   padding: 1.5em;
@@ -14,7 +15,8 @@ nav {
   }
 
 #showForm {
-  background-color: #4056A1;
+  background-color: #00700d;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   color: #FFFF;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
