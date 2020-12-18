@@ -12,3 +12,7 @@ Go to <http://localhost:8080/> in your browser.
 
 - Express
 - Node 5.10.x or above
+- Moment.js
+- Body-parser
+- md5
+- chance
