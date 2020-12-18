@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -18,7 +20,7 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 main {
@@ -30,14 +32,13 @@ main {
   justify-content: space-between;
   background-color: #f4f1ec;
   color: black;
-  padding: 20px
-};
+  padding: 20px;
+}
 
 .tweetContainer {
   border: black;
   background-color: white;
 }
-
 
 .error {
   color: red;

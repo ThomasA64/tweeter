@@ -1,10 +1,9 @@
 .new-tweet {
-  /* border-bottom: solid black; */
   display: none;
   justify-content: center;
   padding: 20px;
   width: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font: bold;
 }
 .new-tweet.visible {
@@ -13,7 +12,7 @@
 
 .butNewTweet {
   background-color: blue;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   color: white;
 }
 
@@ -27,7 +26,7 @@
   justify-content: space-between;
   border-top: solid black 3px;
   padding-top: 20px;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   color: black;
 }
 
@@ -51,12 +50,12 @@
   padding: 20px;
 }
 
-.tweet{
+.tweet {
   border: black solid 2.5px;
   margin-bottom: 20px;
 }
 
-#tweetForm{
+#tweetForm {
   width: 100%;
 }
 
@@ -65,10 +64,5 @@
 }
 
 .icons {
- display: none;
+  display: none;
 }
-
-/* .tweet:hover + .icons:hover {
-  color: blue;
-  display: block;
-} */

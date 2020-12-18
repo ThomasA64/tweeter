@@ -5,20 +5,20 @@ nav {
   width: 100vw;
   background-color: #00700d;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-  color: #FFFF;
-  font-family: 'Bungee', cursive;
+  color: #ffff;
+  font-family: "Bungee", cursive;
   padding: 1.5em;
   overflow: hidden;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-  }
+}
 
 #showForm {
   background-color: #00700d;
   background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
-  color: #FFFF;
+  color: #ffff;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   border: none;
 }
